@@ -4,6 +4,9 @@
 # are entirely non-increasing or non-decreasing.
 
 
+# O(n) Time where n is the length of the input array
+# O(1) Space as we are not creating any new variables that depend on the input
+
 def isMonotonic(array):
 	decreasing = False
 	increasing = False
@@ -16,4 +19,3 @@ def isMonotonic(array):
 		return False
 	else:
 		return True
-	
