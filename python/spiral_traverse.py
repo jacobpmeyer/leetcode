@@ -31,8 +31,8 @@ def spiralTraverse(array):
 
 def spiralTraverse(array):
 	results = []
-	spiralFill(array, 0, len(array) - 1, 0, len(array[0]) - 1)
-	return spiralArray
+	spiralFill(array, 0, len(array) - 1, 0, len(array[0]) - 1, results)
+	return results
 
 def spiralFill(array, startRow, endRow, startCol, endCol, results):
 	if startRow > endRow or startCol > endCol:
@@ -49,4 +49,4 @@ def spiralFill(array, startRow, endRow, startCol, endCol, results):
 		if startCol == endCol:
 			break
 		results.append(array[row][startCol])
-	spiralFill(array, startRow + 1, endRow - 1, startCol + 1, endCol + 1, results)
+	spiralFill(array, startRow + 1, endRow - 1, startCol + 1, endCol - 1, results)
