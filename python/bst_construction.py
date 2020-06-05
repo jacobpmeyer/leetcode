@@ -107,7 +107,7 @@ class BST:
 				currentNode = currentNode.left
 			elif value > currentNode.value:
 				currentNode = currentNode.right
-			else: 
+			else:
 				return True
 		return False
 
@@ -117,7 +117,7 @@ class BST:
 			if value < currentNode.value:
 				parentNode = currentNode
 				currentNode = currentNode.left
-			elif value < currentNode.value:
+			elif value > currentNode.value:
 				parentNode = currentNode
 				currentNode = currentNode.right
 			else:
@@ -126,24 +126,22 @@ class BST:
 					currentNode.right.remove(currentNode.value, currentNode)
 				elif parentNode is None:
 					if currentNode.left is not None:
-						currentNode.value = currentNone.left
+						currentNode = currentNode.left
 						currentNode.right = currentNode.left.right
 						currentNode.left = currentNode.left.left
 					elif currentNode.right is not None:
-						currentNode.value = currentNode.right
+						currentNode = currentNode.right
 						currentNode.left = currentNode.right.left
 						currentNode.right = currentNode.right.right
-					else:
-						pass
 				elif parentNode.left == currentNode:
-					parentNode.left = currentNode.left if currentNode.left is not None else currentNode.right
+					parentNode.left = currentNode.left if currentNode.left is not None else currentNode.right			
 				elif parentNode.right == currentNode:
 					parentNode.right = currentNode.left if currentNode.left is not None else currentNode.right
 				break
 		return self
 
 	def getMinValue(self):
-		currentNode = self 
+		currentNode = self
 		while currentNode.left is not None:
 			currentNode = currentNode.left
 		return currentNode.value
