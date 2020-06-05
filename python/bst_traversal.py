@@ -1,3 +1,9 @@
+
+# O(n) Time | O(n) Space where n is the size of the return array
+
+# In the situation where we weren't storing the array, but only traversing the
+# array in the orders, it would be O(d) space, where d is the depth of the tree.
+
 def inOrderTraverse(tree, array):
 	if tree is not None:
 		inOrderTraverse(tree.left, array)
