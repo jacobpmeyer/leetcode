@@ -1,5 +1,5 @@
 
-# O(n) Time | O(log(n)) Space
+# O(n) Time | O(n) Space because of the creation of our BST
 
 def minHeightBst(array):
 	mid = int(len(array) / 2)
@@ -27,3 +27,17 @@ class BST:
 				self.right = BST(value)
 			else:
 				self.right.insert(value)
+
+
+# O(n) Time | O(n) Space
+def minHeightBst(array):
+	return contructMinHeightBst(array, 0, len(array) - 1)
+
+def contructMinHeightBst(array, startIdx, endIdx):
+	if endIdx < startIdx:
+		return 
+	bst = (startIdx * endIdx) // 2
+	bst.left = contructMinHeightBst(array, startIdx, midIdx - 1)
+	bst.right = contructMinHeightBst(array, midIdx + 1, endIdx)
+	return bst
+
