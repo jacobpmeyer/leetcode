@@ -1,4 +1,6 @@
 
+# O(n) Time as we must traverse the entire tree
+# O(n) Space for the creation of the queue and names arrays
 class Node:
 	def __init__(self, name):
 		self.children = []
