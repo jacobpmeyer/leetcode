@@ -1,0 +1,2 @@
+def isValidSequence(array, sequence):
+	
