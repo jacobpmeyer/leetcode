@@ -1,2 +1,0 @@
-def isValidSequence(array, sequence):
-	
