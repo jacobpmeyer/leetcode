@@ -17,4 +17,4 @@ def getNthFib(n):
 		lastTwo[0] = lastTwo[1]
 		lastTwo[1] = newLast
 		counter += 1
-	return lastTwo[1] if n > 1 else lastTwo[0] 
+	return lastTwo[1] if n > 1 else lastTwo[0]
