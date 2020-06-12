@@ -14,3 +14,19 @@ def binarySearch(array, target):
 		return res + 1 + mid if res != -1 else -1
 	else:
 		return mid
+
+# O(log(n)) Time where n is the length of the array
+# O(1) Space
+def binarySearch(array, target):
+	left = 0
+	right = len(array) - 1
+	while left <= right:
+		mid = (left + right) // 2
+		pivot = array[mid]
+		if pivot == target:
+			return mid
+		elif target < pivot:
+			right = mid - 1
+		else: 
+			left = mid + 1
+	return -1
