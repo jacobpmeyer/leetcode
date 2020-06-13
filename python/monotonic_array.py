@@ -8,14 +8,4 @@
 # O(1) Space as we are not creating any new variables that depend on the input
 
 def isMonotonic(array):
-	decreasing = False
-	increasing = False
-	for i in range(1, len(array)):
-		if array[i] > array[i - 1]:
-			increasing = True
-		elif array[i] < array[i - 1]:
-			decreasing = True
-	if decreasing and increasing:
-		return False
-	else:
-		return True
+	
