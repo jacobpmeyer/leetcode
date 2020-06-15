@@ -1,5 +1,6 @@
 
-
+# O(nm) Time where n is the height of the matrix and m is the width of the matrix
+# O(nm) Space
 def riverSizes(matrix):
 	visited = [[False for el in row] for row in matrix]
 	sizes = []
