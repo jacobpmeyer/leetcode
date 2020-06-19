@@ -16,5 +16,3 @@ class Solution:
 				profit += nextDay - selling
 				selling = 0
 		return profit
-
-# Testing 123
