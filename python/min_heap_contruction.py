@@ -1,3 +1,6 @@
+# Do not edit the class below except for the buildHeap,
+# siftDown, siftUp, peek, remove, and insert methods.
+# Feel free to add new properties and methods to the class.
 class MinHeap:
     def __init__(self, array):
         # Do not edit the line below.
@@ -5,17 +8,17 @@ class MinHeap:
 
     def buildHeap(self, array):
         firstParentIdx = (len(array) - 2) // 2
-		for i in reversed(range(firstParentIdx + 1)):
-			self.siftDown(i, len(array) - 1, array)
+		for currentIdx in reversed(range(firstParentIdx + 1)):
+			self.siftDown(currentIdx, len(array) - 1, array)
 		return array
 
     def siftDown(self, currentIdx, endIdx, heap):
-        childOneIdx = (currentIdx * 2) + 1
+    	childOneIdx = currentIdx * 2 + 1
 		while childOneIdx <= endIdx:
 			childTwoIdx = currentIdx * 2 + 2 if currentIdx * 2 + 2 <= endIdx else - 1
 			if childTwoIdx != -1 and heap[childTwoIdx] < heap[childOneIdx]:
 				idxToSwap = childTwoIdx
-			else: 
+			else:
 				idxToSwap = childOneIdx
 			if heap[idxToSwap] < heap[currentIdx]:
 				self.swap(idxToSwap, currentIdx, heap)
@@ -31,6 +34,7 @@ class MinHeap:
 			currentIdx = parentIdx
 			parentIdx = (currentIdx - 1) // 2
 
+	# We are peaking at the root node
     def peek(self):
         return self.heap[0]
 
@@ -41,8 +45,9 @@ class MinHeap:
 		return valueToRemove
 
     def insert(self, value):
-		self.heap.append(value)
-		self.siftUp(len(self.heap) - 1, self.heap)
-
+        self.heap.append(value)
+		idxToSift = len(self.heap) - 1
+		self.siftUp(idxToSift, self.heap)
+		
 	def swap(self, i, j, heap):
 		heap[i], heap[j] = heap[j], heap[i]
