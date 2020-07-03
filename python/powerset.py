@@ -11,3 +11,6 @@ def powerHelper(array, powerSet):
 			powerHelper(array[:i])
 			powerHelper(array[i:])
 			powerHelper.append(array)
+
+arr = [1, 2, 3]
+print(powerset)
