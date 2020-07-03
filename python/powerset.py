@@ -1,16 +1,17 @@
-def powerset(array):
-    powerSet = []
-	powerHelper(array, powerSet)
-	return powerSet
 
-def powerHelper(array, powerSet):
-	if len(array) <= 1:
-		powerSet.append(array)
-	else:
-		for i in range(array):
-			powerHelper(array[:i])
-			powerHelper(array[i:])
-			powerHelper.append(array)
+# Recursive approach
+# O(n*n^2) Time | O(n*n^2) Space
+def powerset(array, idx = None):
+	if idx is None:
+		idx = len(array) - 1
+	if idx < 0:
+		return [[]]
+	ele = array[idx]
+	subsets = powerset(array, idx - 1)
+	for i in range(len(subsets)):
+		currentSubset = subsets[i]
+		subsets.append(currentSubset + [ele])
+	return subsets
 
-arr = [1, 2, 3]
-print(powerset)
+# Iterative approach
+# O(n*n^2) Time | O(n*n^2) Space
