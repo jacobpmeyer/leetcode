@@ -15,3 +15,10 @@ def powerset(array, idx = None):
 
 # Iterative approach
 # O(n*n^2) Time | O(n*n^2) Space
+def powerset(array):
+	subsets = [[]]
+	for ele in array:
+		for i in range(len(subsets)):
+			currentSubset = subsets[i]
+			subsets.append(currentSubset + [ele])
+	return subsets
