@@ -1,28 +1,26 @@
-# Do not edit the class below except for the
-# populateSuffixTrieFrom and contains methods.
-# Feel free to add new properties and methods
-# to the class.
+
 class SuffixTrie:
     def __init__(self, string):
         self.root = {}
         self.endSymbol = "*"
         self.populateSuffixTrieFrom(string)
 
+	# O(n^2) Time | O(n^2) Space where n is the length of the string
     def populateSuffixTrieFrom(self, string):
-		for i in range(len(string)):
-			self.insertSubstringStartingAt(i, string)
+        for i in range(len(string)):
+			self.createSuffixSub(i, string)
 
-	def insertSubstringStartingAt(eslf, i, string):
+	def createSuffixSub(self, i, string):
 		node = self.root
 		for j in range(i, len(string)):
-			letter = string[j]
-			if letter not in node:
-				node[letter] = {}
-			node =  node[letter]
+			if string[j] not in node:
+				node[string[j]] = {}
+			node = node[string[j]]
 		node[self.endSymbol] = True
 
+	# O(n) Time | O(1) space where m is the input string
     def contains(self, string):
-        node = self.root
+		node = self.root
 		for letter in string:
 			if letter not in node:
 				return False
