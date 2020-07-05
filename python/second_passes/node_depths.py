@@ -1,5 +1,9 @@
 def nodeDepths(root, depth = 0):
-    pass
+    if root is None:
+        return 0
+    left = nodeDepths(root.left, depth + 1)
+    right = nodeDepths(root.right, depth + 1)
+    return depth + left + right
 
 
 class BinaryTree:
