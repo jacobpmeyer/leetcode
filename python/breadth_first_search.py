@@ -18,4 +18,3 @@ class Node:
 			names.append(currentNode.name)
 			queue.extend(currentNode.children)
 		return names
-
