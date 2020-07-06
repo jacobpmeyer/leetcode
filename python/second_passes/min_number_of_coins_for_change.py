@@ -8,14 +8,15 @@
 # Note that an unlimited amount  of coins is at your disposal.
 
 def minNumberOfCoinsForChange(n, denoms):
-    amounts = [0 for x in range(n + 1)]
-    amounts[0] = 1
+    amounts = [float("inf") for x in range(n + 1)]
+    amounts[0] = 0
     for denom in denoms:
         for amount in range(1, n + 1):
             if denom <= amount:
-                amounts[amount] = amounts[amount - denom]
-    return amounts[-1]
-
+                amounts[amount] = min(
+                    amounts[amount], amounts[amount - denom] + 1
+                )
+    return amounts[-1] if amounts[-1] != float("inf") else -1
 
 n = 7
 denoms = [1, 5, 10]
