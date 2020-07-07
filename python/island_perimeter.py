@@ -23,35 +23,20 @@
 class Solution:
     def islandPerimeter(self, grid: List[List[int]]) -> int:
         landToExplore = []
-        explored = {}
         edges = 0
-        x = 0
-        while not len(landToExplore):
-            for j in range(len(grid[x])):
-                if grid[x][j] == 1:
-                    landToExplore.append([x, j])
-                    break
-            x += 1
+        for i in range(len(grid)):
+            for j in range(len(grid[i])):
+                if grid[i][j] == 1:
+                    landToExplore.append([i, j])
+
         while len(landToExplore):
             i, j = landToExplore.pop()
-            if (i, j) in explored:
-                break
-            else:
-                explored[(i, j)] = True
             if i - 1 < 0 or grid[i - 1][j] == 0:
                 edges += 1
-            else:
-                landToExplore.append((i - 1, j))
             if i + 1 >= len(grid) or grid[i + 1][j] == 0:
                 edges += 1
-            else:
-                landToExplore.append((i + 1, j))
             if j - 1 < 0 or grid[i][j - 1] == 0:
                 edges += 1
-            else:
-                landToExplore.append((i, j - 1))
-            if j + 1 > len(grid[i]) or grid[i][j + 1] == 0:
+            if j + 1 >= len(grid[i]) or grid[i][j + 1] == 0:
                 edges += 1
-            else:
-                landToExplore.append((i, j + 1))
         return edges
