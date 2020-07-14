@@ -10,3 +10,6 @@ class Solution:
             dif = res - 180
             res = res - (dif * 2)
         return res
+        
+# One liner I did not come up with
+# return min(abs(30*hour-5.5*minutes),360-abs(30*hour-5.5*minutes))
