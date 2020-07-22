@@ -1,7 +1,12 @@
 def nodeDepths(root):
-    # Write your code here.
-    pass
+    return sumHelper(root, 0)
 
+def sumHelper(node, depth):
+    if node is None:
+        return 0
+    leftSum = sumHelper(node.left, depth + 1)
+    rightSum = sumHelper(node.right, depth + 1)
+    return leftSum + rightSum + depth
 
 # This is the class of the input binary tree.
 class BinaryTree:
