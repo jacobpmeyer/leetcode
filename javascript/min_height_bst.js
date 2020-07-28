@@ -1,5 +1,16 @@
 function minHeightBst(array) {
-  // Write your code here.
+  return bstHelper(array, 0, array.length - 1);
+}
+
+function bstHelper(array, startIdx, endIdx) {
+  if (startIdx > endIdx) return null;
+  const mid = Math.floor((startIdx + endIdx) / 2);
+  const root = new BST(array[mid]);
+  const right = bstHelper(array, mid + 1, endIdx);
+  const left = bstHelper(array, startIdx, mid - 1);
+  root.left = left;
+  root.right = right;
+  return root;
 }
 
 class BST {
