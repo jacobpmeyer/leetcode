@@ -5,10 +5,5 @@ class Solution:
         for coin in coins:
             for amount in range(1, len(minCoins)):
                 if coin <= amount:
-                    minCoins[amount] = min(minCoins[amount], minCoins[amount - denmon] + 1)
-        return minCoins[-1]
-
-coins = [1, 2, 5]
-amount = 11
-s = Solution()
-print(s.coinChange(coins, amount))
+                    minCoins[amount] = min(minCoins[amount], minCoins[amount - coin] + 1)
+        return minCoins[-1] if minCoins[-1] != float("inf") else -1
