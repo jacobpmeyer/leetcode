@@ -1,15 +1,14 @@
 function twoNumberSum(array, targetSum) {
   const h = new Set();
   for (let i = 0; i < array.length; i++) {
-    const dif = array[i] - targetSum;
-    if (h.has(dif)) {
-      return [dif, array[i]];
-    }
+    const dif = targetSum - array[i];
+    if (h.has(dif)) return [dif, array[i]];
+    else h.add(array[i]);
   }
-  return null;
+  return [];
 }
 
-const arr = [1, 2, 3, 2];
+const arr = [1, 2, 2];
 const targ = 4;
 console.log(twoNumberSum(arr, targ));
 
