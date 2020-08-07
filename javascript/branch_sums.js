@@ -8,8 +8,36 @@ class BinaryTree {
   }
 }
 
+/**
+ *
+ * @param {BinaryTree} root
+ * @return {array}
+ *
+ * steps:
+ * create helper function to handle the recursive nature of the problem
+ * Pre-order traverse the Tree, keeping a running branch sum.
+ * When a leaf is hit, return the function without altering the sum
+ * when a node has neither left or right, push sum to res
+ */
+
 function branchSums(root) {
-  // Write your code here.
+  const arr = [];
+  sumHelper(root, 0, arr);
+  return arr;
+}
+
+function sumHelper(node, sum, sumsArray) {
+  if (node === null) return;
+
+  sum += node.value;
+
+  if (!node.left && !node.right) {
+    sumsArray.push(sum);
+    return;
+  }
+
+  sumHelper(node.left, sum, sumsArray);
+  sumHelper(node.right, sum, sumsArray);
 }
 
 // Do not edit the lines below.
