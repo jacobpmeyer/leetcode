@@ -16,7 +16,7 @@ class Node {
   depthFirstSearch(array) {
     array.push(this.name);
     const nodeChildren = [];
-    for (let i = this.children.length - 1; i >= 0; i++) {
+    for (let i = this.children.length - 1; i >= 0; i--) {
       nodeChildren.push(this.children[i]);
     }
     console.log(nodeChildren);
