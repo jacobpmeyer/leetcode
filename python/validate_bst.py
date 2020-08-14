@@ -7,5 +7,13 @@ class BST:
 
 
 def validateBst(tree):
-    # Write your code here.
-    pass
+    return validateBstHelper(tree, float("-inf"), float("inf"))
+
+def validateBstHelper(tree, minVal, maxVal):
+	if tree is None:
+		return True
+	if tree.value < minVal or tree.value >= maxVal:
+		return False
+	left = validateBstHelper(tree.left, minVal, tree.value)
+	right = validateBstHelper(tree.right, tree.value, maxVal)
+	return left and right
