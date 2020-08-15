@@ -2,6 +2,7 @@
 # for the breadthFirstSearch method.
 # Feel free to add new properties
 # and methods to the class.
+from collections import deque
 class Node:
     def __init__(self, name):
         self.children = []
@@ -12,5 +13,12 @@ class Node:
         return self
 
     def breadthFirstSearch(self, array):
-        # Write your code here.
-        pass
+        node = self
+        queue = deque()
+        queue.append(node)
+        while len(queue):
+            currentNode = queue.popleft()
+            for child in currentNode.children:
+                queue.append(child)
+            array.append(currentNode.name)
+        return array
