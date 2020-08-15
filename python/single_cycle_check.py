@@ -12,6 +12,3 @@ def getNextIdx(currentIdx, array):
     jump = array[currentIdx]
     nextIdx = (currentIdx + jump) % len(array)
     return nextIdx if nextIdx >= 0 else nextIdx + len(array)
-
-
-array = [2, 3, 1, -4, -4, 2]
