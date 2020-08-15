@@ -1,7 +1,11 @@
 def invertBinaryTree(tree):
-  if tree is None:
-		return tree
-	temp = invertBinaryTree(tree.left)
-	tree.left = invertBinaryTree(tree.right)
-  tree.right = temp
-	return tree
+    # Write your code here.
+    pass
+
+
+# This is the class of the input binary tree.
+class BinaryTree:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
