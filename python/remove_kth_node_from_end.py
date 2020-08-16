@@ -6,5 +6,17 @@ class LinkedList:
 
 
 def removeKthNodeFromEnd(head, k):
-    # Write your code here.
-    pass
+    count = 0
+    fast = head
+    slow = head
+    while count < k:
+        fast = fast.next
+        count += 1
+    if fast is None:
+        head.value = head.next.value
+        head.next = head.next.next
+        return
+    while fast.next is not None:
+        fast = fast.next
+        slow = slow.next
+    slow.next = slow.next.next
