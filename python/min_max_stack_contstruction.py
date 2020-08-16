@@ -1,21 +1,24 @@
 # Feel free to add new properties and methods to the class.
 class MinMaxStack:
+    def __init__(self):
+        self.stack = []
+
     def peek(self):
-        # Write your code here.
-        pass
+        return self.stack[-1][0]
 
     def pop(self):
-        # Write your code here.
-        pass
+        top = self.stack.pop()
+        return top[0]
 
     def push(self, number):
-        # Write your code here.
-        pass
+        toPush = [number, number, number]
+        if len(self.stack):
+            toPush[1] = min(toPush[1], self.stack[-1][1])
+            toPush[2] = max(toPush[2], self.stack[-1][2])
+        self.stack.append(toPush)
 
     def getMin(self):
-        # Write your code here.
-        pass
+        return self.stack[-1][1]
 
     def getMax(self):
-        # Write your code here.
-        pass
+        return self.stack[-1][2]
