@@ -1,3 +1,8 @@
 def groupAnagrams(words):
-    # Write your code here.
-    pass
+    s = {}
+    for word in words:
+        sWord = "".join(sorted(word))
+        if sWord not in s:
+            s[sWord] = []
+        s[sWord].append(word)
+    return list(s.values())
