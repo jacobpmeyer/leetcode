@@ -1,3 +1,4 @@
+# My version
 def maxPathSum(tree):
    currentMax = [float("-inf")]
    getMaxPath(tree, currentMax)
